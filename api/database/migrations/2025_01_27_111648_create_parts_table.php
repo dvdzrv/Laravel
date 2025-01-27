@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('category');
-            $table->string('sub_category');
+            $table->string('sub_category')->nullable();
             $table->string('value');
             $table->integer('count');
-            $table->integer('min_count');
+            $table->integer('min_count')->nullable();
             $table->timestamps();
         });
     }

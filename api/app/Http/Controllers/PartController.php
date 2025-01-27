@@ -33,7 +33,7 @@ class PartController extends Controller
 
         $part = Part::create($fields);
 
-        return ['part' => $part];
+        return $part;
     }
 
     /**
@@ -41,7 +41,8 @@ class PartController extends Controller
      */
     public function show(Part $part)
     {
-        //
+        //return ['part' => $part];
+        return $part;
     }
 
     /**
@@ -49,7 +50,18 @@ class PartController extends Controller
      */
     public function update(Request $request, Part $part)
     {
-        //
+        $fields = $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'sub_category' => 'nullable',
+            'value' => 'required',
+            'count' => 'required',
+            'min_count' => 'nullable',
+        ]);
+
+        $part -> update($fields);
+
+        return $part;
     }
 
     /**
@@ -57,6 +69,8 @@ class PartController extends Controller
      */
     public function destroy(Part $part)
     {
-        //
+        $part -> delete();
+
+        return ['message' => 'Part deleted'];
     }
 }
