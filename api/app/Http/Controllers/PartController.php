@@ -22,7 +22,7 @@ class PartController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $fields = $request->validate([
             'name' => 'required',
             'category' => 'required',
             'sub_category' => 'nullable',
@@ -31,7 +31,9 @@ class PartController extends Controller
             'min_count' => 'nullable',
         ]);
 
-        return 'ok';
+        $part = Part::create($fields);
+
+        return ['part' => $part];
     }
 
     /**

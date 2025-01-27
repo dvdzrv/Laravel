@@ -9,4 +9,4 @@ use Illuminate\Support\Facades\Route;
 //})->middleware('auth:sanctum');
 
 
-ROute::apiResource('parts', PartController::class);
+Route::apiResource('parts', PartController::class);
