@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BorrowedController;
 use App\Http\Controllers\PartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -10,3 +11,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::apiResource('parts', PartController::class);
+Route::apiResource('borrowed', BorrowedController::class);
